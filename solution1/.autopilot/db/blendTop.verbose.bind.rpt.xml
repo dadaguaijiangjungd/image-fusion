@@ -1,0 +1,53 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'blendTop'" level="0">
+<item name = "Date">Wed Mar  4 23:28:28 2020
+</item>
+<item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
+<item name = "Project">test_blend</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 10.400, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">309603, 1290126, 309604, 1290122, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_blendL_fu_220">blendL, 137, 1290124, 135, 1290122, dataflow</column>
+<column name="grp_xfMat2AXIvideo87_fu_234">xfMat2AXIvideo87, 309121, 309121, 309121, 309121, none</column>
+<column name="grp_AXIvideo2xfMat86_fu_253">AXIvideo2xfMat86, 309603, 309603, 309603, 309603, none</column>
+<column name="grp_xfMat2AXIvideo_fu_272">xfMat2AXIvideo, 77761, 77761, 77761, 77761, none</column>
+<column name="grp_AXIvideo2xfMat_fu_291">AXIvideo2xfMat, 78003, 78003, 78003, 78003, none</column>
+<column name="grp_AXIvideo2xfMat84_fu_310">AXIvideo2xfMat84, 3, 309603, 3, 309603, none</column>
+<column name="grp_AXIvideo2xfMat85_fu_333">AXIvideo2xfMat85, 3, 131583, 3, 131583, none</column>
+<column name="call_ln0_Block_proc_fu_354">Block_proc, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

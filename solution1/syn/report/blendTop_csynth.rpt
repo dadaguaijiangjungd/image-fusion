@@ -1,0 +1,256 @@
+
+
+================================================================
+== Vivado HLS Report for 'blendTop'
+================================================================
+* Date:           Wed Mar  4 23:28:42 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        test_blend
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|    10.400|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+---------+--------+---------+----------+
+    |      Latency     |     Interval     | Pipeline |
+    |   min  |   max   |   min  |   max   |   Type   |
+    +--------+---------+--------+---------+----------+
+    |  309603|  1290126|  309604|  1290122| dataflow |
+    +--------+---------+--------+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------+------------------+--------+---------+--------+---------+----------+
+        |                     |                  |      Latency     |     Interval     | Pipeline |
+        |       Instance      |      Module      |   min  |   max   |   min  |   max   |   Type   |
+        +---------------------+------------------+--------+---------+--------+---------+----------+
+        |blendL_U0            |blendL            |     137|  1290124|     135|  1290122| dataflow |
+        |xfMat2AXIvideo87_U0  |xfMat2AXIvideo87  |  309121|   309121|  309121|   309121|   none   |
+        |AXIvideo2xfMat86_U0  |AXIvideo2xfMat86  |  309603|   309603|  309603|   309603|   none   |
+        |xfMat2AXIvideo_U0    |xfMat2AXIvideo    |   77761|    77761|   77761|    77761|   none   |
+        |AXIvideo2xfMat_U0    |AXIvideo2xfMat    |   78003|    78003|   78003|    78003|   none   |
+        |AXIvideo2xfMat84_U0  |AXIvideo2xfMat84  |       3|   309603|       3|   309603|   none   |
+        |AXIvideo2xfMat85_U0  |AXIvideo2xfMat85  |       3|   131583|       3|   131583|   none   |
+        |Block_proc_U0        |Block_proc        |       0|        0|       0|        0|   none   |
+        +---------------------+------------------+--------+---------+--------+---------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     78|    -|
+|FIFO             |        0|      -|      70|    296|    -|
+|Instance         |       20|    146|   20773|  29454|    0|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     90|    -|
+|Register         |        -|      -|      15|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |       20|    146|   20858|  29918|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        7|     66|      19|     56|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------+------------------+---------+-------+-------+-------+-----+
+    |       Instance      |      Module      | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
+    +---------------------+------------------+---------+-------+-------+-------+-----+
+    |AXIvideo2xfMat_U0    |AXIvideo2xfMat    |        0|      0|    170|    496|    0|
+    |AXIvideo2xfMat84_U0  |AXIvideo2xfMat84  |        0|      0|    143|    467|    0|
+    |AXIvideo2xfMat85_U0  |AXIvideo2xfMat85  |        0|      0|    138|    450|    0|
+    |AXIvideo2xfMat86_U0  |AXIvideo2xfMat86  |        0|      0|    179|    501|    0|
+    |Block_proc_U0        |Block_proc        |        0|      0|      3|     74|    0|
+    |blendL_U0            |blendL            |       20|    146|  19848|  26596|    0|
+    |xfMat2AXIvideo_U0    |xfMat2AXIvideo    |        0|      0|    141|    433|    0|
+    |xfMat2AXIvideo87_U0  |xfMat2AXIvideo87  |        0|      0|    151|    437|    0|
+    +---------------------+------------------+---------+-------+-------+-------+-----+
+    |Total                |                  |       20|    146|  20773|  29454|    0|
+    +---------------------+------------------+---------+-------+-------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +------------------+---------+---+----+-----+------+-----+---------+
+    |       Name       | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +------------------+---------+---+----+-----+------+-----+---------+
+    |pyrLA0_cols_c7_U  |        0|  5|   0|    -|     2|   11|       22|
+    |pyrLA0_cols_c_U   |        0|  5|   0|    -|     2|   11|       22|
+    |pyrLA0_data_V_U   |        0|  5|   0|    -|     1|    8|        8|
+    |pyrLA0_rows_c6_U  |        0|  5|   0|    -|     2|   10|       20|
+    |pyrLA0_rows_c_U   |        0|  5|   0|    -|     2|   10|       20|
+    |pyrLA1_cols_c5_U  |        0|  5|   0|    -|     3|   10|       30|
+    |pyrLA1_cols_c_U   |        0|  5|   0|    -|     2|   10|       20|
+    |pyrLA1_data_V_U   |        0|  5|   0|    -|     1|    8|        8|
+    |pyrLA1_rows_c4_U  |        0|  5|   0|    -|     3|    9|       27|
+    |pyrLA1_rows_c_U   |        0|  5|   0|    -|     2|    9|       18|
+    |pyrLB0_data_V_U   |        0|  5|   0|    -|     1|    8|        8|
+    |pyrLB1_data_V_U   |        0|  5|   0|    -|     1|    8|        8|
+    |pyrS0_data_V_U    |        0|  5|   0|    -|     1|    8|        8|
+    |pyrS1_data_V_U    |        0|  5|   0|    -|     1|    8|        8|
+    +------------------+---------+---+----+-----+------+-----+---------+
+    |Total             |        0| 70|   0|    0|    24|  128|      227|
+    +------------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |             Variable Name            | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |AXIvideo2xfMat84_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |AXIvideo2xfMat85_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |AXIvideo2xfMat86_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |AXIvideo2xfMat_U0_ap_ready_count      |     +    |      0|  0|  10|           2|           1|
+    |Block_proc_U0_ap_ready_count          |     +    |      0|  0|  10|           2|           1|
+    |AXIvideo2xfMat84_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |AXIvideo2xfMat85_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |AXIvideo2xfMat86_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |AXIvideo2xfMat_U0_ap_start            |    and   |      0|  0|   2|           1|           1|
+    |Block_proc_U0_ap_start                |    and   |      0|  0|   2|           1|           1|
+    |ap_idle                               |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_done                          |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_ready                         |    and   |      0|  0|   2|           1|           1|
+    |blendL_U0_start_full_n                |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_AXIvideo2xfMat84_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_AXIvideo2xfMat85_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_AXIvideo2xfMat86_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_AXIvideo2xfMat_U0_ap_ready    |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_Block_proc_U0_ap_ready        |    or    |      0|  0|   2|           1|           1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                 |          |      0|  0|  78|          24|          19|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------------+----+-----------+-----+-----------+
+    |                   Name                   | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |AXIvideo2xfMat84_U0_ap_ready_count        |   9|          2|    2|          4|
+    |AXIvideo2xfMat85_U0_ap_ready_count        |   9|          2|    2|          4|
+    |AXIvideo2xfMat86_U0_ap_ready_count        |   9|          2|    2|          4|
+    |AXIvideo2xfMat_U0_ap_ready_count          |   9|          2|    2|          4|
+    |Block_proc_U0_ap_ready_count              |   9|          2|    2|          4|
+    |ap_sync_reg_AXIvideo2xfMat84_U0_ap_ready  |   9|          2|    1|          2|
+    |ap_sync_reg_AXIvideo2xfMat85_U0_ap_ready  |   9|          2|    1|          2|
+    |ap_sync_reg_AXIvideo2xfMat86_U0_ap_ready  |   9|          2|    1|          2|
+    |ap_sync_reg_AXIvideo2xfMat_U0_ap_ready    |   9|          2|    1|          2|
+    |ap_sync_reg_Block_proc_U0_ap_ready        |   9|          2|    1|          2|
+    +------------------------------------------+----+-----------+-----+-----------+
+    |Total                                     |  90|         20|   15|         30|
+    +------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------+---+----+-----+-----------+
+    |                   Name                   | FF| LUT| Bits| Const Bits|
+    +------------------------------------------+---+----+-----+-----------+
+    |AXIvideo2xfMat84_U0_ap_ready_count        |  2|   0|    2|          0|
+    |AXIvideo2xfMat85_U0_ap_ready_count        |  2|   0|    2|          0|
+    |AXIvideo2xfMat86_U0_ap_ready_count        |  2|   0|    2|          0|
+    |AXIvideo2xfMat_U0_ap_ready_count          |  2|   0|    2|          0|
+    |Block_proc_U0_ap_ready_count              |  2|   0|    2|          0|
+    |ap_sync_reg_AXIvideo2xfMat84_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_sync_reg_AXIvideo2xfMat85_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_sync_reg_AXIvideo2xfMat86_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_sync_reg_AXIvideo2xfMat_U0_ap_ready    |  1|   0|    1|          0|
+    |ap_sync_reg_Block_proc_U0_ap_ready        |  1|   0|    1|          0|
+    +------------------------------------------+---+----+-----+-----------+
+    |Total                                     | 15|   0|   15|          0|
+    +------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+-------------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++-----------------+-----+-----+------------+-------------------+--------------+
+|p_pyrLA0_TDATA   |  in |    8|    axis    | p_pyrLA0_V_data_V |    pointer   |
+|p_pyrLA0_TKEEP   |  in |    1|    axis    | p_pyrLA0_V_keep_V |    pointer   |
+|p_pyrLA0_TSTRB   |  in |    1|    axis    | p_pyrLA0_V_strb_V |    pointer   |
+|p_pyrLA0_TUSER   |  in |    1|    axis    | p_pyrLA0_V_user_V |    pointer   |
+|p_pyrLA0_TLAST   |  in |    1|    axis    | p_pyrLA0_V_last_V |    pointer   |
+|p_pyrLA0_TID     |  in |    1|    axis    |  p_pyrLA0_V_id_V  |    pointer   |
+|p_pyrLA0_TDEST   |  in |    1|    axis    | p_pyrLA0_V_dest_V |    pointer   |
+|p_pyrLA0_TVALID  |  in |    1|    axis    | p_pyrLA0_V_dest_V |    pointer   |
+|p_pyrLA0_TREADY  | out |    1|    axis    | p_pyrLA0_V_dest_V |    pointer   |
+|p_pyrLA1_TDATA   |  in |    8|    axis    | p_pyrLA1_V_data_V |    pointer   |
+|p_pyrLA1_TKEEP   |  in |    1|    axis    | p_pyrLA1_V_keep_V |    pointer   |
+|p_pyrLA1_TSTRB   |  in |    1|    axis    | p_pyrLA1_V_strb_V |    pointer   |
+|p_pyrLA1_TUSER   |  in |    1|    axis    | p_pyrLA1_V_user_V |    pointer   |
+|p_pyrLA1_TLAST   |  in |    1|    axis    | p_pyrLA1_V_last_V |    pointer   |
+|p_pyrLA1_TID     |  in |    1|    axis    |  p_pyrLA1_V_id_V  |    pointer   |
+|p_pyrLA1_TDEST   |  in |    1|    axis    | p_pyrLA1_V_dest_V |    pointer   |
+|p_pyrLA1_TVALID  |  in |    1|    axis    | p_pyrLA1_V_dest_V |    pointer   |
+|p_pyrLA1_TREADY  | out |    1|    axis    | p_pyrLA1_V_dest_V |    pointer   |
+|p_pyrLB0_TDATA   |  in |    8|    axis    | p_pyrLB0_V_data_V |    pointer   |
+|p_pyrLB0_TKEEP   |  in |    1|    axis    | p_pyrLB0_V_keep_V |    pointer   |
+|p_pyrLB0_TSTRB   |  in |    1|    axis    | p_pyrLB0_V_strb_V |    pointer   |
+|p_pyrLB0_TUSER   |  in |    1|    axis    | p_pyrLB0_V_user_V |    pointer   |
+|p_pyrLB0_TLAST   |  in |    1|    axis    | p_pyrLB0_V_last_V |    pointer   |
+|p_pyrLB0_TID     |  in |    1|    axis    |  p_pyrLB0_V_id_V  |    pointer   |
+|p_pyrLB0_TDEST   |  in |    1|    axis    | p_pyrLB0_V_dest_V |    pointer   |
+|p_pyrLB0_TVALID  |  in |    1|    axis    | p_pyrLB0_V_dest_V |    pointer   |
+|p_pyrLB0_TREADY  | out |    1|    axis    | p_pyrLB0_V_dest_V |    pointer   |
+|p_pyrLB1_TDATA   |  in |    8|    axis    | p_pyrLB1_V_data_V |    pointer   |
+|p_pyrLB1_TKEEP   |  in |    1|    axis    | p_pyrLB1_V_keep_V |    pointer   |
+|p_pyrLB1_TSTRB   |  in |    1|    axis    | p_pyrLB1_V_strb_V |    pointer   |
+|p_pyrLB1_TUSER   |  in |    1|    axis    | p_pyrLB1_V_user_V |    pointer   |
+|p_pyrLB1_TLAST   |  in |    1|    axis    | p_pyrLB1_V_last_V |    pointer   |
+|p_pyrLB1_TID     |  in |    1|    axis    |  p_pyrLB1_V_id_V  |    pointer   |
+|p_pyrLB1_TDEST   |  in |    1|    axis    | p_pyrLB1_V_dest_V |    pointer   |
+|p_pyrLB1_TVALID  |  in |    1|    axis    | p_pyrLB1_V_dest_V |    pointer   |
+|p_pyrLB1_TREADY  | out |    1|    axis    | p_pyrLB1_V_dest_V |    pointer   |
+|p_pyrS0_TDATA    | out |    8|    axis    |  p_pyrS0_V_data_V |    pointer   |
+|p_pyrS0_TKEEP    | out |    1|    axis    |  p_pyrS0_V_keep_V |    pointer   |
+|p_pyrS0_TSTRB    | out |    1|    axis    |  p_pyrS0_V_strb_V |    pointer   |
+|p_pyrS0_TUSER    | out |    1|    axis    |  p_pyrS0_V_user_V |    pointer   |
+|p_pyrS0_TLAST    | out |    1|    axis    |  p_pyrS0_V_last_V |    pointer   |
+|p_pyrS0_TID      | out |    1|    axis    |   p_pyrS0_V_id_V  |    pointer   |
+|p_pyrS0_TDEST    | out |    1|    axis    |  p_pyrS0_V_dest_V |    pointer   |
+|p_pyrS0_TVALID   | out |    1|    axis    |  p_pyrS0_V_dest_V |    pointer   |
+|p_pyrS0_TREADY   |  in |    1|    axis    |  p_pyrS0_V_dest_V |    pointer   |
+|p_pyrS1_TDATA    | out |    8|    axis    |  p_pyrS1_V_data_V |    pointer   |
+|p_pyrS1_TKEEP    | out |    1|    axis    |  p_pyrS1_V_keep_V |    pointer   |
+|p_pyrS1_TSTRB    | out |    1|    axis    |  p_pyrS1_V_strb_V |    pointer   |
+|p_pyrS1_TUSER    | out |    1|    axis    |  p_pyrS1_V_user_V |    pointer   |
+|p_pyrS1_TLAST    | out |    1|    axis    |  p_pyrS1_V_last_V |    pointer   |
+|p_pyrS1_TID      | out |    1|    axis    |   p_pyrS1_V_id_V  |    pointer   |
+|p_pyrS1_TDEST    | out |    1|    axis    |  p_pyrS1_V_dest_V |    pointer   |
+|p_pyrS1_TVALID   | out |    1|    axis    |  p_pyrS1_V_dest_V |    pointer   |
+|p_pyrS1_TREADY   |  in |    1|    axis    |  p_pyrS1_V_dest_V |    pointer   |
+|ap_clk           |  in |    1| ap_ctrl_hs |      blendTop     | return value |
+|ap_rst_n         |  in |    1| ap_ctrl_hs |      blendTop     | return value |
+|ap_start         |  in |    1| ap_ctrl_hs |      blendTop     | return value |
+|ap_done          | out |    1| ap_ctrl_hs |      blendTop     | return value |
+|ap_ready         | out |    1| ap_ctrl_hs |      blendTop     | return value |
+|ap_idle          | out |    1| ap_ctrl_hs |      blendTop     | return value |
++-----------------+-----+-----+------------+-------------------+--------------+
+

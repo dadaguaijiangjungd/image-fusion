@@ -1,0 +1,155 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'blendOpt_480_640_s'" level="0">
+<item name = "Date">Wed Mar  4 23:28:38 2020
+</item>
+<item name = "Version">2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
+<item name = "Project">test_blend</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020-clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 10.400, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">136, 1290123, 135, 1290122, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="xFPyrDownGaussianBlu_1_U0">xFPyrDownGaussianBlu_1, 134, 1290121, 134, 1290121, none</column>
+<column name="blendOpt_Loop_1_proc_U0">blendOpt_Loop_1_proc, 4, 130308, 4, 130308, none</column>
+<column name="blendOpt_Loop_2_proc_U0">blendOpt_Loop_2_proc, 4, 130308, 4, 130308, none</column>
+<column name="blendOpt_Block_proc_U0">blendOpt_Block_proc, 0, 0, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 32, -</column>
+<column name="FIFO">0, -, 45, 189, -</column>
+<column name="Instance">10, 73, 9851, 12894, 0</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, 36, -</column>
+<column name="Register">-, -, 6, -, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200, 0</specialColumn>
+<specialColumn name="Utilization (%)">3, 33, 9, 24, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="blendOpt_Block_proc_U0">blendOpt_Block_proc, 0, 0, 2, 47, 0</column>
+<column name="blendOpt_Loop_1_proc_U0">blendOpt_Loop_1_proc, 0, 1, 70, 243, 0</column>
+<column name="blendOpt_Loop_2_proc_U0">blendOpt_Loop_2_proc, 0, 1, 67, 174, 0</column>
+<column name="xFPyrDownGaussianBlu_1_U0">xFPyrDownGaussianBlu_1, 10, 71, 9712, 12430, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="imageA_cols_load4_lo_3_U">0, 5, 0, -, 2, 10, 20</column>
+<column name="imageA_cols_load4_lo_4_U">0, 5, 0, -, 2, 10, 20</column>
+<column name="imageA_cols_load4_lo_U">0, 5, 0, -, 2, 10, 20</column>
+<column name="imageA_rows_load3_lo_3_U">0, 5, 0, -, 2, 9, 18</column>
+<column name="imageA_rows_load3_lo_4_U">0, 5, 0, -, 2, 9, 18</column>
+<column name="imageA_rows_load3_lo_U">0, 5, 0, -, 2, 9, 18</column>
+<column name="p_imageA_in_V_V_U">0, 5, 0, -, 2, 8, 16</column>
+<column name="p_imageB_in_V_V_U">0, 5, 0, -, 2, 8, 16</column>
+<column name="p_imageS_out_V_V_U">0, 5, 0, -, 2, 8, 16</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="blendOpt_Block_proc_U0_ap_ready_count">+, 0, 0, 10, 2, 1</column>
+<column name="blendOpt_Loop_1_proc_U0_ap_ready_count">+, 0, 0, 10, 2, 1</column>
+<column name="ap_idle">and, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_ready">and, 0, 0, 2, 1, 1</column>
+<column name="blendOpt_Block_proc_U0_ap_start">and, 0, 0, 2, 1, 1</column>
+<column name="blendOpt_Loop_1_proc_U0_ap_start">and, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_blendOpt_Block_proc_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
+<column name="ap_sync_blendOpt_Loop_1_proc_U0_ap_ready">or, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_sync_reg_blendOpt_Block_proc_U0_ap_ready">9, 2, 1, 2</column>
+<column name="ap_sync_reg_blendOpt_Loop_1_proc_U0_ap_ready">9, 2, 1, 2</column>
+<column name="blendOpt_Block_proc_U0_ap_ready_count">9, 2, 2, 4</column>
+<column name="blendOpt_Loop_1_proc_U0_ap_ready_count">9, 2, 2, 4</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_sync_reg_blendOpt_Block_proc_U0_ap_ready">1, 0, 1, 0</column>
+<column name="ap_sync_reg_blendOpt_Loop_1_proc_U0_ap_ready">1, 0, 1, 0</column>
+<column name="blendOpt_Block_proc_U0_ap_ready_count">2, 0, 2, 0</column>
+<column name="blendOpt_Loop_1_proc_U0_ap_ready_count">2, 0, 2, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="imageA_rows_dout">in, 9, ap_fifo, imageA_rows, pointer</column>
+<column name="imageA_rows_empty_n">in, 1, ap_fifo, imageA_rows, pointer</column>
+<column name="imageA_rows_read">out, 1, ap_fifo, imageA_rows, pointer</column>
+<column name="imageA_cols_dout">in, 10, ap_fifo, imageA_cols, pointer</column>
+<column name="imageA_cols_empty_n">in, 1, ap_fifo, imageA_cols, pointer</column>
+<column name="imageA_cols_read">out, 1, ap_fifo, imageA_cols, pointer</column>
+<column name="imageA_data_V_dout">in, 8, ap_fifo, imageA_data_V, pointer</column>
+<column name="imageA_data_V_empty_n">in, 1, ap_fifo, imageA_data_V, pointer</column>
+<column name="imageA_data_V_read">out, 1, ap_fifo, imageA_data_V, pointer</column>
+<column name="imageB_data_V_dout">in, 8, ap_fifo, imageB_data_V, pointer</column>
+<column name="imageB_data_V_empty_n">in, 1, ap_fifo, imageB_data_V, pointer</column>
+<column name="imageB_data_V_read">out, 1, ap_fifo, imageB_data_V, pointer</column>
+<column name="imageS_data_V_din">out, 8, ap_fifo, imageS_data_V, pointer</column>
+<column name="imageS_data_V_full_n">in, 1, ap_fifo, imageS_data_V, pointer</column>
+<column name="imageS_data_V_write">out, 1, ap_fifo, imageS_data_V, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, blendOpt&lt;480, 640&gt;, return value</column>
+</table>
+</item>
+</section>
+</profile>

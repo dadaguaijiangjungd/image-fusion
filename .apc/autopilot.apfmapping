@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="fusion.cpp" path="E:\Graduate12\Code\gradutate\test_blend\src\fusion.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="pyrA0.jpg" path="E:\Graduate12\Code\gradutate\test_blend\src\pyrA0.jpg"/>
+    <originFiles name="pyrA1.jpg" path="E:\Graduate12\Code\gradutate\test_blend\src\pyrA1.jpg"/>
+    <originFiles name="pyrB0.jpg" path="E:\Graduate12\Code\gradutate\test_blend\src\pyrB0.jpg"/>
+    <originFiles name="pyrB1.jpg" path="E:\Graduate12\Code\gradutate\test_blend\src\pyrB1.jpg"/>
+    <originFiles name="test.cpp" path="E:\Graduate12\Code\gradutate\test_blend\src\test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

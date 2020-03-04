@@ -1,0 +1,182 @@
+
+
+================================================================
+== Vivado HLS Report for 'blendOpt_480_640_s'
+================================================================
+* Date:           Wed Mar  4 23:28:38 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        test_blend
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|    10.400|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+----------+
+    |    Latency    |    Interval   | Pipeline |
+    | min |   max   | min |   max   |   Type   |
+    +-----+---------+-----+---------+----------+
+    |  136|  1290123|  135|  1290122| dataflow |
+    +-----+---------+-----+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +---------------------------+------------------------+-----+---------+-----+---------+---------+
+        |                           |                        |    Latency    |    Interval   | Pipeline|
+        |          Instance         |         Module         | min |   max   | min |   max   |   Type  |
+        +---------------------------+------------------------+-----+---------+-----+---------+---------+
+        |xFPyrDownGaussianBlu_1_U0  |xFPyrDownGaussianBlu_1  |  134|  1290121|  134|  1290121|   none  |
+        |blendOpt_Loop_1_proc_U0    |blendOpt_Loop_1_proc    |    4|   130308|    4|   130308|   none  |
+        |blendOpt_Loop_2_proc_U0    |blendOpt_Loop_2_proc    |    4|   130308|    4|   130308|   none  |
+        |blendOpt_Block_proc_U0     |blendOpt_Block_proc     |    0|        0|    0|        0|   none  |
+        +---------------------------+------------------------+-----+---------+-----+---------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     32|    -|
+|FIFO             |        0|      -|      45|    189|    -|
+|Instance         |       10|     73|    9851|  12894|    0|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     36|    -|
+|Register         |        -|      -|       6|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |       10|     73|    9902|  13151|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        3|     33|       9|     24|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +---------------------------+------------------------+---------+-------+------+-------+-----+
+    |          Instance         |         Module         | BRAM_18K| DSP48E|  FF  |  LUT  | URAM|
+    +---------------------------+------------------------+---------+-------+------+-------+-----+
+    |blendOpt_Block_proc_U0     |blendOpt_Block_proc     |        0|      0|     2|     47|    0|
+    |blendOpt_Loop_1_proc_U0    |blendOpt_Loop_1_proc    |        0|      1|    70|    243|    0|
+    |blendOpt_Loop_2_proc_U0    |blendOpt_Loop_2_proc    |        0|      1|    67|    174|    0|
+    |xFPyrDownGaussianBlu_1_U0  |xFPyrDownGaussianBlu_1  |       10|     71|  9712|  12430|    0|
+    +---------------------------+------------------------+---------+-------+------+-------+-----+
+    |Total                      |                        |       10|     73|  9851|  12894|    0|
+    +---------------------------+------------------------+---------+-------+------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +--------------------------+---------+---+----+-----+------+-----+---------+
+    |           Name           | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +--------------------------+---------+---+----+-----+------+-----+---------+
+    |imageA_cols_load4_lo_3_U  |        0|  5|   0|    -|     2|   10|       20|
+    |imageA_cols_load4_lo_4_U  |        0|  5|   0|    -|     2|   10|       20|
+    |imageA_cols_load4_lo_U    |        0|  5|   0|    -|     2|   10|       20|
+    |imageA_rows_load3_lo_3_U  |        0|  5|   0|    -|     2|    9|       18|
+    |imageA_rows_load3_lo_4_U  |        0|  5|   0|    -|     2|    9|       18|
+    |imageA_rows_load3_lo_U    |        0|  5|   0|    -|     2|    9|       18|
+    |p_imageA_in_V_V_U         |        0|  5|   0|    -|     2|    8|       16|
+    |p_imageB_in_V_V_U         |        0|  5|   0|    -|     2|    8|       16|
+    |p_imageS_out_V_V_U        |        0|  5|   0|    -|     2|    8|       16|
+    +--------------------------+---------+---+----+-----+------+-----+---------+
+    |Total                     |        0| 45|   0|    0|    18|   81|      162|
+    +--------------------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |               Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |blendOpt_Block_proc_U0_ap_ready_count     |     +    |      0|  0|  10|           2|           1|
+    |blendOpt_Loop_1_proc_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |ap_idle                                   |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_ready                             |    and   |      0|  0|   2|           1|           1|
+    |blendOpt_Block_proc_U0_ap_start           |    and   |      0|  0|   2|           1|           1|
+    |blendOpt_Loop_1_proc_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_blendOpt_Block_proc_U0_ap_ready   |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_blendOpt_Loop_1_proc_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                     |          |      0|  0|  32|          10|           8|
+    +------------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                     | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_blendOpt_Block_proc_U0_ap_ready   |   9|          2|    1|          2|
+    |ap_sync_reg_blendOpt_Loop_1_proc_U0_ap_ready  |   9|          2|    1|          2|
+    |blendOpt_Block_proc_U0_ap_ready_count         |   9|          2|    2|          4|
+    |blendOpt_Loop_1_proc_U0_ap_ready_count        |   9|          2|    2|          4|
+    +----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                         |  36|          8|    6|         12|
+    +----------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------+---+----+-----+-----------+
+    |                     Name                     | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_blendOpt_Block_proc_U0_ap_ready   |  1|   0|    1|          0|
+    |ap_sync_reg_blendOpt_Loop_1_proc_U0_ap_ready  |  1|   0|    1|          0|
+    |blendOpt_Block_proc_U0_ap_ready_count         |  2|   0|    2|          0|
+    |blendOpt_Loop_1_proc_U0_ap_ready_count        |  2|   0|    2|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+    |Total                                         |  6|   0|    6|          0|
+    +----------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+--------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++-----------------------+-----+-----+------------+--------------------+--------------+
+|imageA_rows_dout       |  in |    9|   ap_fifo  |     imageA_rows    |    pointer   |
+|imageA_rows_empty_n    |  in |    1|   ap_fifo  |     imageA_rows    |    pointer   |
+|imageA_rows_read       | out |    1|   ap_fifo  |     imageA_rows    |    pointer   |
+|imageA_cols_dout       |  in |   10|   ap_fifo  |     imageA_cols    |    pointer   |
+|imageA_cols_empty_n    |  in |    1|   ap_fifo  |     imageA_cols    |    pointer   |
+|imageA_cols_read       | out |    1|   ap_fifo  |     imageA_cols    |    pointer   |
+|imageA_data_V_dout     |  in |    8|   ap_fifo  |    imageA_data_V   |    pointer   |
+|imageA_data_V_empty_n  |  in |    1|   ap_fifo  |    imageA_data_V   |    pointer   |
+|imageA_data_V_read     | out |    1|   ap_fifo  |    imageA_data_V   |    pointer   |
+|imageB_data_V_dout     |  in |    8|   ap_fifo  |    imageB_data_V   |    pointer   |
+|imageB_data_V_empty_n  |  in |    1|   ap_fifo  |    imageB_data_V   |    pointer   |
+|imageB_data_V_read     | out |    1|   ap_fifo  |    imageB_data_V   |    pointer   |
+|imageS_data_V_din      | out |    8|   ap_fifo  |    imageS_data_V   |    pointer   |
+|imageS_data_V_full_n   |  in |    1|   ap_fifo  |    imageS_data_V   |    pointer   |
+|imageS_data_V_write    | out |    1|   ap_fifo  |    imageS_data_V   |    pointer   |
+|ap_clk                 |  in |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_start               |  in |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_done                | out |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_ready               | out |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_idle                | out |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
+|ap_continue            |  in |    1| ap_ctrl_hs | blendOpt<480, 640> | return value |
++-----------------------+-----+-----+------------+--------------------+--------------+
+

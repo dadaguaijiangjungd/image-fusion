@@ -1,0 +1,195 @@
+
+
+================================================================
+== Vivado HLS Report for 'xfMat2AXIvideo'
+================================================================
+* Date:           Wed Mar  4 23:28:26 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        test_blend
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     3.634|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  77761|  77761|  77761|  77761|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+-------+-------+----------+-----------+-----------+------+----------+
+        |               |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |   Loop Name   |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- loop_height  |  77760|  77760|       324|          -|          -|   240|    no    |
+        | + loop_width  |    321|    321|         3|          1|          1|   320|    yes   |
+        +---------------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 6
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 6 4 
+4 --> 5 
+5 --> 3 
+6 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.76>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tmp_user_V = alloca i1"   --->   Operation 7 'alloca' 'tmp_user_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %img_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %AXI_video_strm_V_data_V, i1* %AXI_video_strm_V_keep_V, i1* %AXI_video_strm_V_strb_V, i1* %AXI_video_strm_V_user_V, i1* %AXI_video_strm_V_last_V, i1* %AXI_video_strm_V_id_V, i1* %AXI_video_strm_V_dest_V, [5 x i8]* @p_str1, i32 1, i32 1, [5 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (1.76ns)   --->   "store i1 true, i1* %tmp_user_V" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 10 'store' <Predicate = true> <Delay = 1.76>
+ST_1 : Operation 11 [1/1] (1.76ns)   --->   "br label %0" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 11 'br' <Predicate = true> <Delay = 1.76>
+
+State 2 <SV = 1> <Delay = 2.52>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%indvars_iv = phi i9 [ %add_ln186, %loop_height_end ], [ -192, %._crit_edge ]" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 12 'phi' 'indvars_iv' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%index_0 = phi i17 [ %index, %loop_height_end ], [ 0, %._crit_edge ]"   --->   Operation 13 'phi' 'index_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%i_0 = phi i8 [ %i, %loop_height_end ], [ 0, %._crit_edge ]"   --->   Operation 14 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 240, i64 240, i64 240)"   --->   Operation 15 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (1.55ns)   --->   "%icmp_ln186 = icmp eq i8 %i_0, -16" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 16 'icmp' 'icmp_ln186' <Predicate = true> <Delay = 1.55> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 17 [1/1] (1.91ns)   --->   "%i = add i8 %i_0, 1" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 17 'add' 'i' <Predicate = true> <Delay = 1.91> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "br i1 %icmp_ln186, label %2, label %loop_height_begin" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 18 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str7) nounwind" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 19 'specloopname' <Predicate = (!icmp_ln186)> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str7)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 20 'specregionbegin' 'tmp' <Predicate = (!icmp_ln186)> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (2.10ns)   --->   "%index = add i17 %index_0, 320" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:203]   --->   Operation 21 'add' 'index' <Predicate = (!icmp_ln186)> <Delay = 2.10> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 22 [1/1] (1.76ns)   --->   "br label %1" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 22 'br' <Predicate = (!icmp_ln186)> <Delay = 1.76>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 23 'ret' <Predicate = (icmp_ln186)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.63>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%index_assign = phi i17 [ %index_0, %loop_height_begin ], [ %add_ln203, %loop_width ]" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:203]   --->   Operation 24 'phi' 'index_assign' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%j_0 = phi i9 [ 0, %loop_height_begin ], [ %j, %loop_width ]"   --->   Operation 25 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 320, i64 320, i64 320)"   --->   Operation 26 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln187 = trunc i17 %index_assign to i9" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 27 'trunc' 'trunc_ln187' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (1.66ns)   --->   "%icmp_ln187 = icmp eq i9 %trunc_ln187, %indvars_iv" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 28 'icmp' 'icmp_ln187' <Predicate = true> <Delay = 1.66> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 29 [1/1] (1.82ns)   --->   "%j = add i9 1, %j_0" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 29 'add' 'j' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "br i1 %icmp_ln187, label %loop_height_end, label %loop_width" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 30 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (1.66ns)   --->   "%axi_last_V = icmp eq i9 %j_0, -193" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:197]   --->   Operation 31 'icmp' 'axi_last_V' <Predicate = (!icmp_ln187)> <Delay = 1.66> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.55> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (2.10ns)   --->   "%add_ln203 = add i17 %index_assign, 1" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:203]   --->   Operation 32 'add' 'add_ln203' <Predicate = (!icmp_ln187)> <Delay = 2.10> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 3.63>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%tmp_user_V_load = load i1* %tmp_user_V" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:208]   --->   Operation 33 'load' 'tmp_user_V_load' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (3.63ns)   --->   "%tmp_V = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %img_data_V)" [D:/Data/fpga/xfopencv-master/include\common/xf_structs.h:621->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:70->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:83->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:202]   --->   Operation 34 'read' 'tmp_V' <Predicate = (!icmp_ln187)> <Delay = 3.63> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 8> <Depth = 2> <FIFO>
+ST_4 : Operation 35 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P.i1P.i1P.i1P.i1P.i1P.i1P(i8* %AXI_video_strm_V_data_V, i1* %AXI_video_strm_V_keep_V, i1* %AXI_video_strm_V_strb_V, i1* %AXI_video_strm_V_user_V, i1* %AXI_video_strm_V_last_V, i1* %AXI_video_strm_V_id_V, i1* %AXI_video_strm_V_dest_V, i8 %tmp_V, i1 true, i1 undef, i1 %tmp_user_V_load, i1 %axi_last_V, i1 undef, i1 undef)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:208]   --->   Operation 35 'write' <Predicate = (!icmp_ln187)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 36 [1/1] (1.76ns)   --->   "store i1 false, i1* %tmp_user_V" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 36 'store' <Predicate = (!icmp_ln187)> <Delay = 1.76>
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str8) nounwind" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 37 'specloopname' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_2 = call i32 (...)* @_ssdm_op_SpecRegionBegin([11 x i8]* @p_str8)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 38 'specregionbegin' 'tmp_2' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+ST_5 : Operation 39 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:189]   --->   Operation 39 'specpipeline' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+ST_5 : Operation 40 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.volatile.i8P.i1P.i1P.i1P.i1P.i1P.i1P(i8* %AXI_video_strm_V_data_V, i1* %AXI_video_strm_V_keep_V, i1* %AXI_video_strm_V_strb_V, i1* %AXI_video_strm_V_user_V, i1* %AXI_video_strm_V_last_V, i1* %AXI_video_strm_V_id_V, i1* %AXI_video_strm_V_dest_V, i8 %tmp_V, i1 true, i1 undef, i1 %tmp_user_V_load, i1 %axi_last_V, i1 undef, i1 undef)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:208]   --->   Operation 40 'write' <Predicate = (!icmp_ln187)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([11 x i8]* @p_str8, i32 %tmp_2)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:209]   --->   Operation 41 'specregionend' 'empty' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "br label %1" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187]   --->   Operation 42 'br' <Predicate = (!icmp_ln187)> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 1.82>
+ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str7, i32 %tmp)" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:210]   --->   Operation 43 'specregionend' 'empty_24' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 44 [1/1] (1.82ns)   --->   "%add_ln186 = add i9 %indvars_iv, -192" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 44 'add' 'add_ln186' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.82> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 45 [1/1] (0.00ns)   --->   "br label %0" [D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186]   --->   Operation 45 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.77ns
+The critical path consists of the following:
+	'alloca' operation ('tmp.user.V') [9]  (0 ns)
+	'store' operation ('store_ln186', D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186) of constant 1 on local variable 'tmp.user.V' [12]  (1.77 ns)
+
+ <State 2>: 2.53ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln186', D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186) [19]  (1.55 ns)
+	blocking operation 0.978 ns on control path)
+
+ <State 3>: 2.64ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln187', D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:187) [32]  (1.66 ns)
+	blocking operation 0.978 ns on control path)
+
+ <State 4>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'img_data_V' (D:/Data/fpga/xfopencv-master/include\common/xf_structs.h:621->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:70->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:83->D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:202) [41]  (3.63 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+ <State 6>: 1.82ns
+The critical path consists of the following:
+	'add' operation ('add_ln186', D:/Data/fpga/xfopencv-master/include\common/xf_infra.h:186) [49]  (1.82 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

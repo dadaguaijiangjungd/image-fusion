@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vivado HLS Report for 'blendL'
+================================================================
+* Date:           Wed Mar  4 23:28:39 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        test_blend
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|    10.400|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+----------+
+    |    Latency    |    Interval   | Pipeline |
+    | min |   max   | min |   max   |   Type   |
+    +-----+---------+-----+---------+----------+
+    |  137|  1290124|  135|  1290122| dataflow |
+    +-----+---------+-----+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------+---------------------+-----+---------+-----+---------+----------+
+        |                        |                     |    Latency    |    Interval   | Pipeline |
+        |        Instance        |        Module       | min |   max   | min |   max   |   Type   |
+        +------------------------+---------------------+-----+---------+-----+---------+----------+
+        |blendOpt_480_640_83_U0  |blendOpt_480_640_83  |  136|  1290123|  135|  1290122| dataflow |
+        |blendOpt_480_640_U0     |blendOpt_480_640_s   |  136|  1290123|  135|  1290122| dataflow |
+        |blendL_entry126_U0      |blendL_entry126      |    0|        0|    0|        0|   none   |
+        +------------------------+---------------------+-----+---------+-----+---------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     50|    -|
+|FIFO             |        0|      -|      20|     88|    -|
+|Instance         |       20|    146|   19818|  26395|    0|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     63|    -|
+|Register         |        -|      -|      10|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |       20|    146|   19848|  26596|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        7|     66|      18|     49|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------+---------------------+---------+-------+------+-------+-----+
+    |        Instance        |        Module       | BRAM_18K| DSP48E|  FF  |  LUT  | URAM|
+    +------------------------+---------------------+---------+-------+------+-------+-----+
+    |blendL_entry126_U0      |blendL_entry126      |        0|      0|     2|     83|    0|
+    |blendOpt_480_640_83_U0  |blendOpt_480_640_83  |       10|     73|  9914|  13161|    0|
+    |blendOpt_480_640_U0     |blendOpt_480_640_s   |       10|     73|  9902|  13151|    0|
+    +------------------------+---------------------+---------+-------+------+-------+-----+
+    |Total                   |                     |       20|    146| 19818|  26395|    0|
+    +------------------------+---------------------+---------+-------+------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------+---------+---+----+-----+------+-----+---------+
+    |        Name       | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +-------------------+---------+---+----+-----+------+-----+---------+
+    |pyrLA0_cols_c_i_U  |        0|  5|   0|    -|     2|   11|       22|
+    |pyrLA0_rows_c_i_U  |        0|  5|   0|    -|     2|   10|       20|
+    |pyrLA1_cols_c_i_U  |        0|  5|   0|    -|     2|   10|       20|
+    |pyrLA1_rows_c_i_U  |        0|  5|   0|    -|     2|    9|       18|
+    +-------------------+---------+---+----+-----+------+-----+---------+
+    |Total              |        0| 20|   0|    0|     8|   40|       80|
+    +-------------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |              Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |blendL_entry126_U0_ap_ready_count        |     +    |      0|  0|  10|           2|           1|
+    |blendOpt_480_640_83_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |blendOpt_480_640_U0_ap_ready_count       |     +    |      0|  0|  10|           2|           1|
+    |ap_idle                                  |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_continue                         |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_done                             |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_ready                            |    and   |      0|  0|   2|           1|           1|
+    |blendL_entry126_U0_ap_start              |    and   |      0|  0|   2|           1|           1|
+    |blendOpt_480_640_83_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |blendOpt_480_640_U0_ap_start             |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_blendL_entry126_U0_ap_ready      |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_blendOpt_480_640_83_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_blendOpt_480_640_U0_ap_ready     |    or    |      0|  0|   2|           1|           1|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                    |          |      0|  0|  50|          16|          13|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                    | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |ap_sync_reg_blendL_entry126_U0_ap_ready      |   9|          2|    1|          2|
+    |ap_sync_reg_blendOpt_480_640_83_U0_ap_ready  |   9|          2|    1|          2|
+    |ap_sync_reg_blendOpt_480_640_U0_ap_ready     |   9|          2|    1|          2|
+    |blendL_entry126_U0_ap_ready_count            |   9|          2|    2|          4|
+    |blendOpt_480_640_83_U0_ap_ready_count        |   9|          2|    2|          4|
+    |blendOpt_480_640_U0_ap_ready_count           |   9|          2|    2|          4|
+    |real_start                                   |   9|          2|    1|          2|
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |Total                                        |  63|         14|   10|         20|
+    +---------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------+---+----+-----+-----------+
+    |                     Name                    | FF| LUT| Bits| Const Bits|
+    +---------------------------------------------+---+----+-----+-----------+
+    |ap_sync_reg_blendL_entry126_U0_ap_ready      |  1|   0|    1|          0|
+    |ap_sync_reg_blendOpt_480_640_83_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_sync_reg_blendOpt_480_640_U0_ap_ready     |  1|   0|    1|          0|
+    |blendL_entry126_U0_ap_ready_count            |  2|   0|    2|          0|
+    |blendOpt_480_640_83_U0_ap_ready_count        |  2|   0|    2|          0|
+    |blendOpt_480_640_U0_ap_ready_count           |  2|   0|    2|          0|
+    |start_once_reg                               |  1|   0|    1|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+    |Total                                        | 10|   0|   10|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+---------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  | Source Object |    C Type    |
++-----------------------+-----+-----+------------+---------------+--------------+
+|ap_start               |  in |    1| ap_ctrl_hs |     blendL    | return value |
+|start_full_n           |  in |    1| ap_ctrl_hs |     blendL    | return value |
+|start_out              | out |    1| ap_ctrl_hs |     blendL    | return value |
+|start_write            | out |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_clk                 |  in |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_done                | out |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_ready               | out |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_idle                | out |    1| ap_ctrl_hs |     blendL    | return value |
+|ap_continue            |  in |    1| ap_ctrl_hs |     blendL    | return value |
+|pyrLA0_rows_dout       |  in |   10|   ap_fifo  |  pyrLA0_rows  |    pointer   |
+|pyrLA0_rows_empty_n    |  in |    1|   ap_fifo  |  pyrLA0_rows  |    pointer   |
+|pyrLA0_rows_read       | out |    1|   ap_fifo  |  pyrLA0_rows  |    pointer   |
+|pyrLA0_cols_dout       |  in |   11|   ap_fifo  |  pyrLA0_cols  |    pointer   |
+|pyrLA0_cols_empty_n    |  in |    1|   ap_fifo  |  pyrLA0_cols  |    pointer   |
+|pyrLA0_cols_read       | out |    1|   ap_fifo  |  pyrLA0_cols  |    pointer   |
+|pyrLA0_data_V_dout     |  in |    8|   ap_fifo  | pyrLA0_data_V |    pointer   |
+|pyrLA0_data_V_empty_n  |  in |    1|   ap_fifo  | pyrLA0_data_V |    pointer   |
+|pyrLA0_data_V_read     | out |    1|   ap_fifo  | pyrLA0_data_V |    pointer   |
+|pyrLA1_rows_dout       |  in |    9|   ap_fifo  |  pyrLA1_rows  |    pointer   |
+|pyrLA1_rows_empty_n    |  in |    1|   ap_fifo  |  pyrLA1_rows  |    pointer   |
+|pyrLA1_rows_read       | out |    1|   ap_fifo  |  pyrLA1_rows  |    pointer   |
+|pyrLA1_cols_dout       |  in |   10|   ap_fifo  |  pyrLA1_cols  |    pointer   |
+|pyrLA1_cols_empty_n    |  in |    1|   ap_fifo  |  pyrLA1_cols  |    pointer   |
+|pyrLA1_cols_read       | out |    1|   ap_fifo  |  pyrLA1_cols  |    pointer   |
+|pyrLA1_data_V_dout     |  in |    8|   ap_fifo  | pyrLA1_data_V |    pointer   |
+|pyrLA1_data_V_empty_n  |  in |    1|   ap_fifo  | pyrLA1_data_V |    pointer   |
+|pyrLA1_data_V_read     | out |    1|   ap_fifo  | pyrLA1_data_V |    pointer   |
+|pyrLB0_data_V_dout     |  in |    8|   ap_fifo  | pyrLB0_data_V |    pointer   |
+|pyrLB0_data_V_empty_n  |  in |    1|   ap_fifo  | pyrLB0_data_V |    pointer   |
+|pyrLB0_data_V_read     | out |    1|   ap_fifo  | pyrLB0_data_V |    pointer   |
+|pyrLB1_data_V_dout     |  in |    8|   ap_fifo  | pyrLB1_data_V |    pointer   |
+|pyrLB1_data_V_empty_n  |  in |    1|   ap_fifo  | pyrLB1_data_V |    pointer   |
+|pyrLB1_data_V_read     | out |    1|   ap_fifo  | pyrLB1_data_V |    pointer   |
+|pyrS0_data_V_din       | out |    8|   ap_fifo  |  pyrS0_data_V |    pointer   |
+|pyrS0_data_V_full_n    |  in |    1|   ap_fifo  |  pyrS0_data_V |    pointer   |
+|pyrS0_data_V_write     | out |    1|   ap_fifo  |  pyrS0_data_V |    pointer   |
+|pyrS1_data_V_din       | out |    8|   ap_fifo  |  pyrS1_data_V |    pointer   |
+|pyrS1_data_V_full_n    |  in |    1|   ap_fifo  |  pyrS1_data_V |    pointer   |
+|pyrS1_data_V_write     | out |    1|   ap_fifo  |  pyrS1_data_V |    pointer   |
++-----------------------+-----+-----+------------+---------------+--------------+
+

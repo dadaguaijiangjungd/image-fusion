@@ -1,0 +1,168 @@
+
+
+================================================================
+== Vivado HLS Report for 'blendOpt_Loop_2_proc'
+================================================================
+* Date:           Wed Mar  4 23:28:23 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        test_blend
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     7.268|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+--------+-----+--------+---------+
+    |    Latency   |   Interval   | Pipeline|
+    | min |   max  | min |   max  |   Type  |
+    +-----+--------+-----+--------+---------+
+    |    4|  130308|    4|  130308|   none  |
+    +-----+--------+-----+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+--------+----------+-----------+-----------+------------+----------+
+        |          |    Latency   | Iteration|  Initiation Interval  |    Trip    |          |
+        | Loop Name| min |   max  |  Latency |  achieved |   target  |    Count   | Pipelined|
+        +----------+-----+--------+----------+-----------+-----------+------------+----------+
+        |- Loop 1  |    1|  130305|         2|          1|          1| 1 ~ 130305 |    yes   |
+        +----------+-----+--------+----------+-----------+-----------+------------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 5 4 
+4 --> 3 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.63>
+ST_1 : Operation 6 [1/1] (3.63ns)   --->   "%imageA_rows_load3_lo = call i9 @_ssdm_op_Read.ap_fifo.i9P(i9* %imageA_rows_load3_loc)"   --->   Operation 6 'read' 'imageA_rows_load3_lo' <Predicate = true> <Delay = 3.63> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 10> <Depth = 2> <FIFO>
+ST_1 : Operation 7 [1/1] (3.63ns)   --->   "%imageA_cols_load4_lo = call i10 @_ssdm_op_Read.ap_fifo.i10P(i10* %imageA_cols_load4_loc)"   --->   Operation 7 'read' 'imageA_cols_load4_lo' <Predicate = true> <Delay = 3.63> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 10> <Depth = 2> <FIFO>
+
+State 2 <SV = 1> <Delay = 6.38>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %p_imageS_out_V_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 8 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %imageS_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 9 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i9* %imageA_rows_load3_loc, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 10 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i10* %imageA_cols_load4_loc, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 11 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%cast = zext i9 %imageA_rows_load3_lo to i19"   --->   Operation 12 'zext' 'cast' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%cast1 = zext i10 %imageA_cols_load4_lo to i19"   --->   Operation 13 'zext' 'cast1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (6.38ns) (root node of the DSP)   --->   "%bound = mul i19 %cast1, %cast"   --->   Operation 14 'mul' 'bound' <Predicate = true> <Delay = 6.38> <Core = "DSP48">   --->   Core 88 'DSP48' <Latency = 0> <II = 1> <Delay = 6.38> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
+ST_2 : Operation 15 [1/1] (1.76ns)   --->   "br label %0" [test_blend/src/fusion_lib.hpp:488]   --->   Operation 15 'br' <Predicate = true> <Delay = 1.76>
+
+State 3 <SV = 2> <Delay = 2.43>
+ST_3 : Operation 16 [1/1] (0.00ns)   --->   "%indvar_flatten = phi i19 [ 0, %entry ], [ %add_ln488, %hls_label_12 ]" [test_blend/src/fusion_lib.hpp:488]   --->   Operation 16 'phi' 'indvar_flatten' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 17 [1/1] (2.43ns)   --->   "%icmp_ln488 = icmp eq i19 %indvar_flatten, %bound" [test_blend/src/fusion_lib.hpp:488]   --->   Operation 17 'icmp' 'icmp_ln488' <Predicate = true> <Delay = 2.43> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.43> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 18 [1/1] (2.16ns)   --->   "%add_ln488 = add i19 %indvar_flatten, 1" [test_blend/src/fusion_lib.hpp:488]   --->   Operation 18 'add' 'add_ln488' <Predicate = true> <Delay = 2.16> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.16> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 19 [1/1] (0.00ns)   --->   "br i1 %icmp_ln488, label %.exit, label %hls_label_12" [test_blend/src/fusion_lib.hpp:488]   --->   Operation 19 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 7.26>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 130305, i64 0)"   --->   Operation 20 'speclooptripcount' <Predicate = (!icmp_ln488)> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%tmp_108_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str20)" [test_blend/src/fusion_lib.hpp:492]   --->   Operation 21 'specregionbegin' 'tmp_108_i_i' <Predicate = (!icmp_ln488)> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [test_blend/src/fusion_lib.hpp:494]   --->   Operation 22 'specpipeline' <Predicate = (!icmp_ln488)> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] (3.63ns)   --->   "%tmp_V = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %p_imageS_out_V_V)" [test_blend/src/fusion_lib.hpp:495]   --->   Operation 23 'read' 'tmp_V' <Predicate = (!icmp_ln488)> <Delay = 3.63> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 10> <Depth = 2> <FIFO>
+ST_4 : Operation 24 [1/1] (3.63ns)   --->   "call fastcc void @write(i8 %tmp_V, i8* %imageS_data_V)" [test_blend/src/fusion_lib.hpp:496]   --->   Operation 24 'call' <Predicate = (!icmp_ln488)> <Delay = 3.63> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str20, i32 %tmp_108_i_i)" [test_blend/src/fusion_lib.hpp:498]   --->   Operation 25 'specregionend' 'empty' <Predicate = (!icmp_ln488)> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "br label %0" [test_blend/src/fusion_lib.hpp:491]   --->   Operation 26 'br' <Predicate = (!icmp_ln488)> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 0.00>
+ST_5 : Operation 27 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 27 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 3.63ns
+The critical path consists of the following:
+	fifo read on port 'imageA_rows_load3_loc' [9]  (3.63 ns)
+
+ <State 2>: 6.38ns
+The critical path consists of the following:
+	'mul' operation of DSP[13] ('bound') [13]  (6.38 ns)
+
+ <State 3>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('indvar_flatten', test_blend/src/fusion_lib.hpp:488) with incoming values : ('add_ln488', test_blend/src/fusion_lib.hpp:488) [16]  (0 ns)
+	'icmp' operation ('icmp_ln488', test_blend/src/fusion_lib.hpp:488) [17]  (2.44 ns)
+
+ <State 4>: 7.27ns
+The critical path consists of the following:
+	fifo read on port 'p_imageS_out_V_V' (test_blend/src/fusion_lib.hpp:495) [24]  (3.63 ns)
+	'call' operation ('call_ln496', test_blend/src/fusion_lib.hpp:496) to 'write' [25]  (3.63 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
